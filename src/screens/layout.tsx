@@ -1,3 +1,4 @@
+import { Menu } from "@chakra-ui/react";
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col">
