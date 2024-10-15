@@ -1,4 +1,5 @@
-import { Modal } from "antd";
+import { Modal, Popover } from "antd";
+
 import { useState } from "react";
 export default function Board() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,6 +13,12 @@ export default function Board() {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+  const popoverContent = (
+    <div>
+      <p>Edit Task</p>
+      <p>Delete Task</p>
+    </div>
+  );
   return (
     // active board state
     <main>
@@ -52,7 +59,13 @@ export default function Board() {
             business models
           </h2>
           {/* edit task button */}
-          <img src="/src/assets/icon-vertical-ellipsis.svg" alt="edit" />
+          <Popover content={popoverContent}>
+            <img
+              src="/src/assets/icon-vertical-ellipsis.svg"
+              alt="edit"
+              className="cursor-pointer"
+            />
+          </Popover>
         </div>
         {/* task description */}
         <p>
