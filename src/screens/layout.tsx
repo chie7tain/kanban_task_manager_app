@@ -2,8 +2,13 @@ import { Switch } from "antd";
 import { Outlet, NavLink } from "react-router-dom";
 
 import { AddTask } from "../components/addTask";
+import { useState } from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpen = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <div className="flex flex-col">
       {/* sidebar */}
@@ -33,11 +38,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* nav items */}
           <div className="flex flex-col gap-4 relative">
-            <button className="text-xl font-bold flex items-center gap-2">
-              Platform Launch{" "}
-              <img src="/src/assets/icon-chevron-down.svg" alt="chevron down" />
+            <button
+              className="text-xl font-bold flex items-center gap-2"
+              onClick={handleOpen}
+            >
+              Platform Launch{""}
+              <img
+                src={
+                  isOpen
+                    ? "/src/assets/icon-chevron-up.svg"
+                    : "/src/assets/icon-chevron-down.svg"
+                }
+                alt="chevron down"
+              />
             </button>
-            <div className="flex flex-col gap-4 absolute top-16 left-0 bg-white py-2 rounded-lg w-64 border">
+            <div
+              className={`flex flex-col gap-4 absolute top-16 left-0 bg-white py-2 rounded-lg w-64 border ${
+                isOpen ? "block" : "hidden"
+              }`}
+            >
               <h3 className="text-gray-primary text-sm font-bold px-4">
                 All Boards (3)
               </h3>
