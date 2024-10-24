@@ -39,7 +39,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* nav items */}
           <div className="flex flex-col gap-4 relative">
             <button
-              className="text-xl font-bold flex items-center gap-2"
+              className="text-xl font-bold flex items-center gap-2 cursor-pointer"
               onClick={handleOpen}
             >
               Platform Launch{""}
@@ -78,7 +78,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                               : "/src/assets/icon-board.svg"
                           }
                           alt="board"
-                        />
+                        />{" "}
                         Platform Launch
                       </span>
                     )}

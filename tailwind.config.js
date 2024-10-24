@@ -17,7 +17,6 @@ export default {
         "white":"#FFFFFF",
         "red":"#EA5555",
         "red-secondary":"#FF9898",
-        
       }
     },
   },
